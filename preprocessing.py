@@ -1,10 +1,13 @@
 import os
+import re
 
 def fix(a):
     if a.startswith('"') and a.endswith('"'):
         unquoted = a[1:-1]
     if not a.endswith((".", "!", "?")):
         a = a + "."
+    instances = re.compile(r"COVID-19", re.IGNORECASE)
+    a = instances.sub("coronavirus", a)
     return a
 
 def parse():
