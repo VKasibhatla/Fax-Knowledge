@@ -37,19 +37,19 @@ def parse():
     #print('frequency',frequency)
     # for UNK in UNK_list:
     #     vocabulary[UNK] = 1
-    tokenize = lambda x: [vocabulary[key] if key in vocabulary else vocabulary['UNK'] for key in x.split()]
+    tokenize = lambda x: [vocabulary[key.lower().replace('"', '').replace("'", '').replace('�?','')] if key in vocabulary else vocabulary['UNK'] for key in x.split()]
     #print('claimsZX',claims[0])
     #print('tokenize',tokenize(claims[0]))
-    encode = lambda x: 0 if x is "F" else (1 if x is "U" else 2)
+    encode = lambda x: [1,0,0] if x is "F" else ([0,1,0] if x is "U" else [0,0,1])
     #print('train_data',train_data[0])
-    training = [[tokenize(claims[x]),encode(train_data[x][0])] for x in range(0,len(claims))]
+    lstm_training = [[tokenize(claims[x]) for x in range(0,len(claims))],[encode(train_data[x][0]) for x in range(0,len(claims))]]
     test_claims = [test_data[x][1] for x in range(0,len(test_data))]
-    testing = [[tokenize(test_claims[x]),encode(test_data[x][0])] for x in range(0,len(test_claims))]
+    lstm_testing = [[tokenize(test_claims[x]) for x in range(0,len(test_claims))],[encode(test_data[x][0]) for x in range(0,len(test_claims))]]
     #test_data  = list(map(lambda x: vocabulary[x], test_data[:][1]))
     #print('train',train_data)
     #print('test',testing)
     fax_training = [claims,[encode(train_data[x][0]) for x in range(0,len(claims))]]
     fax_testing = [test_claims,[encode(test_data[x][0]) for x in range(0,len(test_claims))]]
-    print('fax_train',fax_training)
-    print('fax_test',fax_testing)
-    return [fax_training,training],[fax_testing,testing], vocabulary
+    print('lstm_train',lstm_training)
+    print('lstm_test',lstm_testing)
+    return [fax_training,lstm_training],[fax_testing,lstm_testing], vocabulary
