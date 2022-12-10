@@ -1,5 +1,6 @@
 import os
 import re
+import random
 
 def fix(a):
     if a.startswith('"') and a.endswith('"'):
@@ -13,6 +14,7 @@ def fix(a):
 def parse():
     with open('data.txt') as f:
         lines = f.readlines()
+    random.shuffle(lines)
     data = [[line.split(',',2)[1],fix(line.split(',',2)[2][:-3])] for line in lines]
     #print('data',data)
     #print(len(data))
