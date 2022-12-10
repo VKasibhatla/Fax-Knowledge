@@ -1,9 +1,17 @@
 import os
 
+def fix(a):
+    if a.startswith('"') and a.endswith('"'):
+        unquoted = a[1:-1]
+    if not a.endswith((".", "!", "?")):
+        a = a + "."
+    return a
+
 def parse():
     with open('data.txt') as f:
         lines = f.readlines()
-    data = [line.split(',')[1:3] for line in lines]
+    data = [[line.split(',',2)[1],fix(line.split(',',2)[2][:-4])] for line in lines]
+    print('data',data)
     print(len(data))
     train_data = data[:int(0.75*len(data))]
     print(len(train_data))
@@ -56,4 +64,5 @@ def parse():
     fax_testing = [test_claims,[encode(test_data[x][0]) for x in range(0,len(test_claims))]]
     #print('lstm_train',lstm_training)
     #print('lstm_test',lstm_testing)
+    #print(fax_training)
     return [fax_training,lstm_training],[fax_testing,lstm_testing], vocabulary
