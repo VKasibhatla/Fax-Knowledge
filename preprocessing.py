@@ -23,7 +23,8 @@ def parse():
         for token in tokens:
             token = token.lower().replace('"', '').replace("'", '').replace('�?','')
             if x == 34:
-                print('token',token)
+                pass
+                #print('token',token)
             if token not in vocabulary:
                 vocabulary[token] = vocab_size
                 vocab_size += 1
@@ -50,6 +51,6 @@ def parse():
     #print('test',testing)
     fax_training = [claims,[encode(train_data[x][0]) for x in range(0,len(claims))]]
     fax_testing = [test_claims,[encode(test_data[x][0]) for x in range(0,len(test_claims))]]
-    print('lstm_train',lstm_training)
-    print('lstm_test',lstm_testing)
+    #print('lstm_train',lstm_training)
+    #print('lstm_test',lstm_testing)
     return [fax_training,lstm_training],[fax_testing,lstm_testing], vocabulary
