@@ -4,8 +4,11 @@ def parse():
     with open('data.txt') as f:
         lines = f.readlines()
     data = [line.split(',')[1:3] for line in lines]
+    print(len(data))
     train_data = data[:int(0.75*len(data))]
-    test_data = data[len(data)-len(train_data):]
+    print(len(train_data))
+    test_data = [x for x in data if x not in train_data]
+    print(len(test_data))
     vocabulary, vocab_size = {}, 2 #initializing COVID-19 and UNK tokens
     vocabulary['covid-19'] = 0
     vocabulary['coronavirus'] = 0
