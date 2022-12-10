@@ -10,7 +10,7 @@ def fix(a):
 def parse():
     with open('data.txt') as f:
         lines = f.readlines()
-    data = [[line.split(',',2)[1],fix(line.split(',',2)[2][:-4])] for line in lines]
+    data = [[line.split(',',2)[1],fix(line.split(',',2)[2][:-3])] for line in lines]
     print('data',data)
     print(len(data))
     train_data = data[:int(0.75*len(data))]
