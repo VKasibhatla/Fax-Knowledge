@@ -40,7 +40,7 @@ This project contains two models:
 
 Change parameters based on needs in main function: If you would like to train a model change variable to true and select either FaxModel (paper_model = True) or KnowledgeModel(paper_model = False)
 ```
-train_model = False
+training = False
 paper_model = True
 ```
 
