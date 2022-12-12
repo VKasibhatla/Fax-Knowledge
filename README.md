@@ -38,15 +38,16 @@ This project contains two models:
 * FaxModel: Reimplementation of the model suggested in the paper
 * KnowledgeModel: Plain LSTM Recurrent Neural Network Model
 
-Change parameters based on needs in main function: If you would like to train a model change variable to true and select either FaxModel (paper_model = True) or KnowledgeModel(paper_model = False)
+Change parameters based on needs in main function of main.py: If you would like to train the FaxModel change variable to true
 ```
 training = False
-paper_model = True
 ```
-
 Note: During implemenation, training for FaxModel was around 40 minutes.
 
-To train, test or see demo results for a model from the paper, run:
+To see demo results for Faxmodel from the paper, run:
 ```
 python main.py
 ```
+
+To see training and testing results from KnowledgeModel run main_LSTM.py
+
