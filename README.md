@@ -32,7 +32,7 @@ Recommended to install PyTorch from https://pytorch.org
 
 # Running the Models
 
-This project uses the conda environment found in the [CSCI1470 Setup Guide] (https://docs.google.com/document/d/1Qcss983uPe25bn-gH4DBVGq6X1viyEHW/edit)
+This project uses the conda environment found in the [CSCI1470 Setup Guide](https://docs.google.com/document/d/1Qcss983uPe25bn-gH4DBVGq6X1viyEHW/edit)
 
 This project contains two models:
 * FaxModel: Reimplementation of the model suggested in the paper
