@@ -5,7 +5,7 @@ Group members:
 * Josue Cruz (jcruz14)
 * Varun Kasibhatla (vkasibha)
 
-This project is a reimplementation of the work in [Language Models as Fact Checkers?] (https://aclanthology.org/2020.fever-1.5.pdf) (2020).
+This project is a reimplementation of the work in [Language Models as Fact Checkers?](https://aclanthology.org/2020.fever-1.5.pdf) (2020).
 
 The contents of the data.txt file was downloaded from https://github.com/MickeysClubhouse/COVID-19-rumor-dataset/blob/master/Data/news/news.csv.
 
